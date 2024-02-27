@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, inital-scale=1">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" href="css/about.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <title>About</title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div class="main_body">
+            <div class="head" id="header_container">
+                <div id="site_title">
+                    <h1 id="title">Lippross <br>
+                        Consultancy <br>
+                        Limited
+                    </h1>
+                    <div id="logo">
+                        <a href="index.html">
+                            <img src="../images/infinity_symbol.png" > 
+                        </a>
+                    </div>
+                </div>
+                <div id="nav_bar">
+                    <div id="nav_contents">
+                        <a class="nav-button" href="/">Home</a>
+                        <a class="nav-button" href="about">About</a>
+                        <div class="dropdown">
+                            <!-- Create a dropdown button -->
+                            <button>Cloud Portals <sup>&#8964;</sup></button>
+                            
+                            <!-- Create a dropdown content (list of links) -->
+                            <div class="dropdown-content">
+                              <a href="https://portal.azure.com/#home">Azure</a>
+                              <a href="https://console.aws.amazon.com/console/home?nc2=h_ct&src=header-signin">AWS</a>
+                            </div>
+                          </div>
+                          <div class="dropdown">
+                            <!-- Create a dropdown button -->
+                            <button>Media <sup>&#8964;</sup></button>
+                            
+                            <!-- Create a dropdown content (list of links) -->
+                            <div class="dropdown-content">
+                              <a href="https://www.youtube.com/">YouTube</a>
+                              <a href="https://open.spotify.com/">Spotify</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="body" id="body_container">
+                <div class="fade-in-box" id="div1">
+                    <div id="text">
+                        <h2>Daniel Lippross - Director/Consultant</h2>
+                        <p>Experienced and Azure certified Site Reliability Engineer with 4 years of experience. Throughout my
+                            career in DevOps I have worked as part of a variety of multi-disciplinary Agile product teams. My role
+                            has focused on infrastructure as code and building and maintaining CI/CD pipelines. My area of
+                            expertise is Microsoft Azure, working with serverless computing, Kubernetes, networking, security, and
+                            monitoring solutions. I have recently achieved the AZ-104 Azure Administrator Associate certification.
+                        </p>
+                    </div>
+                    <div id="picture">
+
+                    </div>
+                  </div>
+                  <div class="fade-in-box" id="div2">
+                    <p>Div 2 content here...</p>
+                  </div>
+                  <div class="fade-in-box" id="div3">
+                    <p>Div 3 content here...</p>
+                  </div>
+            </div>
+        </div>
+        <div class="foot" id="foot_container">
+            <div id="foot_content">
+
+            </div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            // Immediately fade in div1
+            document.getElementById('div1').classList.add('fade-in');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+                });
+            }, { threshold: 0.1 }); // Adjust threshold to control when the fade-in starts
+
+            // Observe div2 and div3
+            document.querySelectorAll('.fade-in-box:not(#div1)').forEach(div => {
+                observer.observe(div);
+            });
+            });
+
+        </script> 
+    </body>
+</html>

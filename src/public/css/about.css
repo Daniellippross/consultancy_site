@@ -1,0 +1,200 @@
+/* Reset margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: solid 1px tomato; */
+}
+
+/* Make the body fill the entire viewport and remove default margin */
+body, html {
+    width: 100%;
+    min-height: 100%;
+    height: 150%;
+}
+
+div.main_body {
+    width: 100%;     
+    height: 100%;   
+    background-color: #000000; 
+    background-image: url("../images/space.png"); 
+    background-size: cover; 
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+#header_container {
+    width: 100%;
+    height: 20%;
+    background-image: linear-gradient(to right, black 15%, rgba(0,0,0,0) 60%),linear-gradient(to left, black 5%, rgba(0,0,0,0) 10%), linear-gradient(to top, black 5%, rgba(0,0,0,0) 75%);
+    background-position: bottom, left, right;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+h1 {
+    font-size: 2vw; /* 4% of the viewport width */
+    font-size: 4vh;
+}
+
+#logo {
+    width: 10%;
+    height: 100%;
+    background-color: green;
+}
+
+img[src="../images/infinity_symbol.png"] {width: 100%; height: 100%;}
+
+#site_title {
+    width: 100%;
+    height: 75%;
+    text-align: left;
+    color: aliceblue;
+}
+
+#title {
+    width: 90%;
+    height: 100%;
+    float: right;
+}
+
+#nav_bar {
+    width: 100%;
+    height: 25%;
+    background-color: black;
+    background-position: left, right;
+    background-repeat: no-repeat;
+
+}
+
+.dropdown {
+    margin-right: 10px;
+}
+    /* Style for the dropdown container */
+.dropdown {
+position: relative; 
+display: inline-block;
+}
+
+.nav-button {
+    background-color: rgb(0, 0, 0);
+    color: aliceblue;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    }
+
+/* Style for the dropdown button */
+.dropdown button {
+background-color: rgb(0, 0, 0);
+color: aliceblue;
+padding: 5px;
+border: none;
+cursor: pointer;
+border-radius: 5px;
+}
+
+/* Style for the dropdown content (hidden by default) */
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+z-index: 1;
+}
+
+/* Style for the dropdown items */
+.dropdown-content a {
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+}
+
+/* Change color on hover */
+.dropdown-content a:hover {
+background-color: #3498db;
+color: white;
+}
+
+/* Show the dropdown content when hovering over the dropdown button */
+.dropdown:hover .dropdown-content {
+display: block;
+}
+#body_container {
+    width: 100%;
+    height: 70%;
+    overflow:auto;
+}
+
+#div1{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Adjusts the div's position dynamically */
+    width: 75%;
+    height: 50%;
+    background-color: black;
+    color: aliceblue;
+    background-image: linear-gradient(to right, black 15%, rgba(0,0,0,0) 60%),linear-gradient(to left, black 5%, rgba(0,0,0,0) 10%), linear-gradient(to top, black 5%, rgba(0,0,0,0) 75%);
+    background-position: bottom, left, right;
+    background-repeat: no-repeat;
+}
+
+#text{
+    height: 100%;
+    width: 70%;
+    float: left;
+}
+
+#picture{
+    height: 100%;
+    width: 30%;
+    float: right;
+    background-image: url(IMG_0813.JPG);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#div2{
+    position: absolute;
+    top: 125%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Adjusts the div's position dynamically */
+    width: 75%;
+    height: 50%;
+    background-color: black;
+    color: aliceblue;
+}
+
+#div3{
+    position: absolute;
+    top: 185%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Adjusts the div's position dynamically */
+    width: 75%;
+    height: 50%;
+    background-color: black;
+    color: aliceblue;
+}
+
+.fade-in-box {
+    opacity: 0;
+    transition: opacity 2s ease-out;
+}
+  
+.fade-in-box.fade-in {
+    opacity: 1;
+}
+
+
+#foot_container {
+    width: 100%;
+    height: 10%;
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+
+}

@@ -1,0 +1,199 @@
+/* Reset margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: solid 1px tomato; */
+}
+
+/* Make the body fill the entire viewport and remove default margin */
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+div.main_body {
+    width: 100%;     
+    height: 100%;     
+    background-color: #000000; 
+    background-image: url("../images/space_face.png");
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: clip;
+}
+#header_container {
+    width: 100%;
+    height: 20%;
+    background-image: linear-gradient(to right, black 15%, rgba(0,0,0,0) 60%),linear-gradient(to left, black 5%, rgba(0,0,0,0) 10%), linear-gradient(to top, black 5%, rgba(0,0,0,0) 75%);
+    background-position: bottom, left, right;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    font-size: 2vw; /* 4% of the viewport width */
+    font-size: 4vh;
+}
+
+#logo {
+    width: 10%;
+    height: 100%;
+    background-color: green;
+}
+
+img[src="../images/infinity_symbol.png"] {width: 100%; height: 100%;}
+
+#site_title {
+    width: 100%;
+    height: 75%;
+    text-align: left;
+    color: aliceblue;
+}
+
+#title {
+    width: 90%;
+    height: 100%;
+    float: right;
+}
+
+#nav_bar {
+    width: 100%;
+    height: 25%;
+    background-color: black;
+    background-position: left, right;
+    background-repeat: no-repeat;
+
+}
+
+.dropdown {
+    margin-right: 10px;
+}
+    /* Style for the dropdown container */
+.dropdown {
+position: relative; 
+display: inline-block;
+}
+
+.nav-button {
+    background-color: rgb(0, 0, 0);
+    color: aliceblue;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    }
+
+/* Style for the dropdown button */
+.dropdown button {
+background-color: rgb(0, 0, 0);
+color: aliceblue;
+padding: 5px;
+border: none;
+cursor: pointer;
+border-radius: 5px;
+}
+
+/* Style for the dropdown content (hidden by default) */
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+z-index: 1;
+}
+
+/* Style for the dropdown items */
+.dropdown-content a {
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+}
+
+/* Change color on hover */
+.dropdown-content a:hover {
+background-color: #3498db;
+color: white;
+}
+
+/* Show the dropdown content when hovering over the dropdown button */
+.dropdown:hover .dropdown-content {
+display: block;
+}
+#body_container {
+    width: 100%;
+    height: 70%;
+
+}
+#left_body_content {
+    width: 40%;
+    height: 100%;
+    float: left;
+    background-color: black;
+}
+#left_body_content_top {
+    width: 100%;
+    height: 70%;
+    color: aliceblue;
+}
+
+#scroll {
+    width: 100%; /* or any other fixed width */
+    height: 100%; /* or any other fixed height */
+    overflow: auto; /* This will add scrollbars if the content overflows */
+    padding: 15px; /* optional, for spacing */
+}
+
+
+#left_body_content_bottom {
+    width: 100%;
+    height: 30%;
+}
+#middle_body_content {
+    width: 40%;
+    height: 100%;
+    float: left;
+    background-image: linear-gradient(to right, black 5%, rgba(0,0,0,0) 10%),linear-gradient(to left, black 5%, rgba(0,0,0,0) 10%), linear-gradient(to top, black 10%, rgba(0,0,0,0) 20%),linear-gradient(to bottom, black 5%, rgba(0,0,0,0) 10%);
+    /* background-image: 
+    linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0) 50%),
+    linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0) 50%), 
+    linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));  */
+  background-position: bottom, left, right;
+  background-repeat: no-repeat;
+}
+#middle_body_content_top {
+    width: 100%;
+    height: 90%;
+}
+#middle_body_content_bottom {
+    width: 100%;
+    height: 10%;
+    background-color: black;
+}
+
+#right_body_content {
+    width: 20%;
+    height: 100%;
+    float: left;
+    background-color: black;
+}
+
+#right_body_content_top {
+    width: 100%;
+    height: 90%;
+    color: aliceblue;
+}
+#right_body_content_bottom {
+    width: 100%;
+    height: 10%;
+    color: aliceblue;
+    overflow: hidden;
+}
+
+#foot_container {
+    width: 100%;
+    height: 10%;
+    background-color: black;
+
+}
