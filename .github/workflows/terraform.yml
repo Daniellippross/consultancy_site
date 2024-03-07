@@ -29,7 +29,6 @@ jobs:
     - name: Print ARM_SUBSCRIPTION_ID
       run: echo "Subscription ID length is ${#ARM_SUBSCRIPTION_ID}"
 
-
     - name: 'Setup Terraform'
       uses: hashicorp/setup-terraform@v1
       with:
