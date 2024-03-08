@@ -14,7 +14,7 @@ resource "azurerm_subnet" "internal" {
   name                 = "site-subnet" # CHANGE
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes     = ["10.0.0.0/24"]
+  address_prefixes     = ["10.0.0.0/23"]
 
   service_endpoints = [
     "Microsoft.KeyVault",
@@ -67,31 +67,51 @@ resource "azurerm_subnet_network_security_group_association" "nsg-association" {
   network_security_group_id = azurerm_network_security_group.nsg.id
 }
 
-
-resource "azurerm_linux_virtual_machine" "vm" {
-  name                = "site-vm"
-  resource_group_name = azurerm_resource_group.rg.name
+resource "azurerm_log_analytics_workspace" "law" {
+  name                = "workspacesiterg83b4"
   location            = azurerm_resource_group.rg.location
-  size                = "Standard_B1s"
-  admin_username      = "adminuser"
-  network_interface_ids = [
-    azurerm_network_interface.nic.id,
-  ]
+  resource_group_name = azurerm_resource_group.rg.name
+  sku                 = "PerGB2018"
+  retention_in_days   = 30
+}
 
-  admin_ssh_key {
-    username   = "adminuser"
-    public_key = data.azurerm_key_vault_secret.pub-ssh-key.value
+resource "azurerm_container_app_environment" "aca_env" {
+  name                       = "site-managed-environment"
+  location                   = azurerm_resource_group.rg.location
+  resource_group_name        = azurerm_resource_group.rg.name
+  infrastructure_subnet_id   = azurerm_subnet.internal.id
+}
+
+resource "azurerm_container_app" "aca" {
+  name                         = "aca-site"
+  container_app_environment_id = azurerm_container_app_environment.aca_env.id
+  resource_group_name          = azurerm_resource_group.rg.name
+  revision_mode                = "Single"
+
+  secret {
+    name = "test"
+    value = "test"
   }
 
-  os_disk {
-    caching              = "ReadWrite"
-    storage_account_type = "Standard_LRS"
+  ingress {
+    external_enabled = true
+    target_port = "80"
+    traffic_weight {
+      latest_revision = true
+      percentage = "100"
+    }
   }
 
-  source_image_reference {
-    publisher = "canonical"
-    offer     = "0001-com-ubuntu-server-focal"
-    sku       = "20_04-lts-gen2"
-    version   = "latest"
+  template {
+    max_replicas = 1
+    container {
+      name   = "aca-site"
+      image  = "lipprossconsultancy.azurecr.io/consultancy/site:latest"
+      cpu    = 0.25
+      memory = "0.5Gi"
+    }
+  }
+  lifecycle {
+    ignore_changes = [ secret, registry ]
   }
 }
