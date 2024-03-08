@@ -2,6 +2,9 @@ name: Docker Image CI
 
 on:
   push:
+    paths-ignore:
+      - terraform/**
+      - .github/workflows/terraform.yml
     branches: [ "main" ]
 
 jobs:
